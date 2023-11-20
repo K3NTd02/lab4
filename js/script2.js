@@ -54,12 +54,11 @@ function getData(){
             //create a Leaflet GeoJSON layer and add it to the map
             L.geoJson(json, {
                 pointToLayer: function (feature, latlng){
-                    return L.circleMarker(latlng, geojsonMarkerOptions);
+                    var marker = L.circleMarker(latlng, geojsonMarkerOptions);
+                    onEachFeature(feature, marker);
+                    return marker;
                 }
-            }).addTo(map);
-            L.geoJson(json, {
-                onEachFeature: onEachFeature
-            }).addTo(map);            
+            }).addTo(map);          
             //create marker options
             
         });
@@ -67,4 +66,4 @@ function getData(){
 
 document.addEventListener('DOMContentLoaded',createMap)
 
-//codes from Chapter 4 Lesson 2 in Workbook
+//codes from Chapter 4 Lesson 2 in Workbook with ChatGPT edits on last ".then" in getData() function
