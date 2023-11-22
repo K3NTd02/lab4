@@ -38,7 +38,7 @@ function onEachFeature(feature, layer) {
 //function to retrieve the data and place it on the map
 function getData(){
     //load the data
-    fetch("data/Power_Plants.geojson")
+    fetch("/lab4/data/Power_Plants.geojson")
         .then(function(response){
             return response.json();
         })
